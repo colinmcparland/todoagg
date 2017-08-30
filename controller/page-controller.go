@@ -6,8 +6,18 @@ import (
 	"net/http"
 )
 
+/*
+	Pass the oauth tokens to the homepage for fun
+*/
 type HomepageData struct {
 	BasecampToken string
+}
+
+/*
+	Pass Basecamp API output for now, later we can add more fields
+*/
+type BasecampListData struct {
+	APIOutput string
 }
 
 /*
@@ -70,6 +80,13 @@ func HttpHomeHandler(response http.ResponseWriter, request *http.Request) {
 
 	var data HomepageData
 	c, err := request.Cookie("basecamp_token")
+
+	if err != nil {
+		fmt.Println("No basecamp token present")
+		t.Execute(response, data)
+		return
+	}
+
 	fmt.Println(c, err)
 	data.BasecampToken = c.Value
 	t.Execute(response, data)
@@ -80,5 +97,14 @@ func HttpHomeHandler(response http.ResponseWriter, request *http.Request) {
 */
 
 func HttpListHandler(response http.ResponseWriter, request *http.Request) {
+	template, err = template.ParseFiles("html/list.html")
 
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	/*
+		Making a test API call to Basecamp
+	*/
 }

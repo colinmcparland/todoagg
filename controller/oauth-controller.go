@@ -68,9 +68,18 @@ func BasecampOauthHandler(response http.ResponseWriter, request *http.Request) {
 			expiration := time.Now().Add(14 * 24 * time.Hour)
 			cookie := http.Cookie{Name: "basecamp_token", Value: string(access_token.AccessToken), Expires: expiration, Path: "/"}
 			http.SetCookie(response, &cookie)
-		}
 
-		fmt.Println(request.Cookie("basecamp_token"))
+			fmt.Println(request.Cookie("basecamp_token"))
+
+			/*
+				Get the Basecamp user id and store it in a cookie for later use.  bc3 only for now
+			*/
+
+			/*
+				Redirect to the homepage for now
+			*/
+			http.Redirect(response, request, "/", http.StatusFound)
+		}
 
 	}
 }

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/user/aggtodo"
+	"github.com/user/aggtodo/controller"
 	"log"
 	"net/http"
 )
@@ -13,6 +13,12 @@ func main() {
 	*/
 
 	http.HandleFunc("/", controller.HttpHomeHandler)
+
+	/*
+		Serve up the list page
+	*/
+
+	http.HandleFunc("/my-list", controller.HttpListHandler)
 
 	/*
 		URL to handle OAuth2 responses
