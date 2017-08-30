@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Test page</title>
+<link rel="stylesheet" type="text/css" href="css/cutestrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<div class="wrapper">
+<h1>Hello, Welcome to the Aggregator</h1>
+<div class="grid">
+<div>
+<h6>Useful for Freelancers</h6>
+<p class="fs-small">Deserunt ad enim ad nulla enim sit id amet labore voluptate dolore reprehenderit ad.</p>
+</div>
+<div>
+<h6>Useful for Managers</h6>
+<p class="fs-small">Consectetur id cupidatat in consectetur ut reprehenderit veniam occaecat anim amet proident magna sunt consectetur culpa labore sit dolor.</p>
+</div>
+<div>
+<h6>Useful for Everybody</h6>
+<p class="fs-small">Amet aliquip aliqua sit magna cupidatat dolore veniam esse sunt consequat do ad ut qui amet.</p>
+</div>
+</div>
+
+<form method="POST">
+<div class="grid">
+<div class="column--heavy">
+<label class="select">
+<select name="integration_request">
+<option value="basecamp">Basecamp</option>
+<option disabled>Asana</option>
+<option disabled>Teamwork</option>
+<option disabled>Trello</option>
+<option disabled>JIRA</option>
+<option disabled>Gitlab</option>
+<option disabled>Wunderlist</option>
+</select>
+<span class="select__label">Import</span>
+</label>
+</div>
+<div class="column--light">
+<input style="width: 100%;" type="submit" value="Import" />
+</div>
+</div>
+</form>
+</div>
+<p>{{.BasecampToken}}</p>
+</body>
+</html>
